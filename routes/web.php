@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 Route::get('/dashboard', function () {
     return view('index');
@@ -13,4 +13,4 @@ Route::get('/dashboard', function () {
 Route::view('/login', 'login');
 Route::get('/redirect', [SocialiteController::class, 'redirect'])->name('redirect')->middleware('guest');
 Route::get('/auth/callback', [SocialiteController::class, 'callback'])->name('callback')->middleware('guest');
-Route::get('/logout', [SocialiteController::class, 'logout'])->name('logout');
+Route::post('/logout', [SocialiteController::class, 'logout'])->name('logout');
